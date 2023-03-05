@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_sponsor_type_form" model="ir.ui.view">
+        <field name="name">enayah.sponsor.type.form</field>
+        <field name="model">enayah.sponsor.type</field>
+        <field name="arch" type="xml" >
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sponsor_type_tree" model="ir.ui.view">
+        <field name="name">enayah.sponsor.type.tree</field>
+        <field name="model">enayah.sponsor.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_sponsor_type_kanban" model="ir.ui.view">
+        <field name="name">enayah.sponsor.type.kanban</field>
+        <field name="model">enayah.sponsor.type</field>
+        <field name="arch" type="xml">
+            <kanban default_order="id asc">
+                <field name="name"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <t t-name="kanban-box">
+
+                                <div class="oe_kanban_content flex-grow-1">
+                                    <ul>
+                                        <li>
+                                            Name :
+                                            <field name="name"/>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            Description :
+                                            <field name="description"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                        </t>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_sponsor_type_search" model="ir.ui.view">
+        <field name="name">enayah.sponsor.type.search</field>
+        <field name="model">enayah.sponsor.type</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <separator/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_enayah_sponsor_type_request" model="ir.actions.act_window">
+        <field name="name">Sponsor Type</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">enayah.sponsor.type</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first sponsor type
+            </p>
+        </field>
+    </record>
+
+</odoo>

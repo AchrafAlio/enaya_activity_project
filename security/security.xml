@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!--    Enayah Activity category    -->
+    <record model="ir.module.category" id="module_category_enayah_activity">
+        <field name="name">Enayah Activity</field>
+        <field name="description">Category for Enayah Activity</field>
+        <field name="sequence">45</field>
+    </record>
+
+    <!--    Administration Manager group    -->
+    <record id="group_enayah_administration_manager" model="res.groups">
+        <field name="name">Administration Manager</field>
+        <field name="category_id" ref="module_category_enayah_activity"/>
+    </record>
+
+    <!--    Executive Director group    -->
+    <record id="group_enayah_executive_director" model="res.groups">
+        <field name="name">Executive Director</field>
+        <field name="category_id" ref="module_category_enayah_activity"/>
+    </record>
+
+    <!--     Secretary General group    -->
+    <record id="group_enayah_secretary_general" model="res.groups">
+        <field name="name"> Secretary General</field>
+        <field name="category_id" ref="module_category_enayah_activity"/>
+    </record>
+
+    <!--     Applicant group    -->
+    <record id="group_enayah_applicant" model="res.groups">
+        <field name="name"> Enayah Applicant</field>
+        <field name="category_id" ref="module_category_enayah_activity"/>
+    </record>
+
+</odoo>

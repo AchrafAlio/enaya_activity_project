@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_sponsor_form" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="/form/*" position="after">
+                <header groups="activity_execution_request.group_enayah_administration_manager">
+                    <button id="button_approved" name="action_approved" states="new,old_discontinues"
+                            string="Approve" class="btn-primary" type="object"/>
+
+                    <button id="button_old_discontinues" name="action_old_discontinues" states="approved,old_continuous"
+                            string="Old Discontinues" class="btn-primary" type="object"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="new,approved,old_discontinues,old_continuous"/>
+                </header>
+            </xpath>
+
+            <xpath expr="//field[@name='vat']" position="replace">
+                <field name="sponsor_type_id" required="1"></field>
+            </xpath>
+
+            <xpath expr="//page[@name='contact_addresses']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='sales_purchases']"  position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_enayah_sponsor" model="ir.actions.act_window">
+        <field name="name">Sponsors</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first sponsor
+            </p>
+        </field>
+    </record>
+
+</odoo>

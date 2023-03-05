@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_activity_form" model="ir.ui.view">
+        <field name="name">enayah.activity.form</field>
+        <field name="model">enayah.activity</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button id="button_approved_by_administration_manager" name="%(action_senior_management_approve)d"
+                            states="administration_manager_approval"
+                            groups="activity_execution_request.group_enayah_administration_manager"
+                            string="Approve" class="btn-primary" type="action"/>
+
+                    <button id="button_modification_request" name="%(action_modify_enayah_activity)d"
+                            states="administration_manager_approval" string="Modification Request"
+                            groups="activity_execution_request.group_enayah_administration_manager"
+                            class="btn-primary" type="action"/>
+
+                    <button id="button_secretary_general_approval" name="%(action_senior_management_approve)d"
+                            states="executive_director_approval"
+                            groups="activity_execution_request.group_enayah_executive_director"
+                            string="Approve" class="btn-primary"
+                            type="action"/>
+
+                    <button id="button_approved_by_secretary_general" name="action_approved_by_secretary_general"
+                            states="secretary_general_approval"
+                            groups="activity_execution_request.group_enayah_secretary_general"
+                            string="Approve" class="btn-primary" type="object"/>
+
+                    <button id="button_reject" name="action_reject" confirm="Are you sure that you need to reject ?"
+                            class="btn-primary"
+                            groups="activity_execution_request.group_enayah_administration_manager,activity_execution_request.group_enayah_secretary_general,activity_execution_request.group_enayah_executive_director"
+                            attrs="{'invisible': [('hide_reject_button', '=', True)]}"
+                            string="Reject" type="object"/>
+
+                    <button id="button_submit" name="action_submit" class="btn-primary"
+                            attrs="{'invisible': [('hide_submit_button', '=', True)]}"
+                            groups="activity_execution_request.group_enayah_applicant"
+                            string="Submit" type="object"/>
+
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="new,administration_manager_approval,executive_director_approval,secretary_general_approval"/>
+                </header>
+                <sheet>
+                    <group>
+
+                        <group>
+                            <field name="name" invisible="1"/>
+                            <field name="create_uid" readonly="1" string="Applicant"/>
+                            <field name="type_activity_id" attrs="{'readonly': [('can_edit', '=', False)]}"/>
+                            <field name="start_date_time" attrs="{'readonly': [('can_edit', '=', False)]}"/>
+                            <field name="goal" attrs="{'readonly': [('can_edit', '=', False)]}"/>
+                            <field name="employee_ids" attrs="{'readonly': [('can_edit', '=', False)]}"
+                                   widget="many2many_tags"/>
+
+                            <field name="hide_submit_button" invisible="1"/>
+                            <field name="hide_reject_button" invisible="1"/>
+                            <field name="can_edit" invisible="1"/>
+                        </group>
+
+                        <group>
+                            <field name="enaya_program_project_id" attrs="{'readonly': [('can_edit', '=', False)]}"/>
+                            <field name="remarks" attrs="{'readonly': [('can_edit', '=', False)]}"/>
+
+                            <field name="sponsor_id" attrs="{'readonly': [('can_edit', '=', False)]}"/>
+                            <field name="sponsor_type" attrs="{'invisible': [('sponsor_id', '=', False)]}"
+                                   readonly="1"/>
+                            <field name="sponsor_state" attrs="{'invisible': [('sponsor_id', '=', False)]}"
+                                   readonly="1"/>
+                        </group>
+                    </group>
+
+                </sheet>
+                <footer>
+
+                </footer>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_activity_tree" model="ir.ui.view">
+        <field name="name">enayah.activity.tree</field>
+        <field name="model">enayah.activity</field>
+        <field name="arch" type="xml">
+            <tree default_order="id desc">
+                <field name="name"/>
+                <field name="create_uid" string="Applicant"/>
+                <field name="type_activity_id"/>
+                <field name="submit_date"/>
+                <field name="start_date_time"/>
+                <field name="goal"/>
+                <field name="enaya_program_project_id"/>
+                <field name="employee_ids" widget="many2many_tags"/>
+                <field name="remarks"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_activity_kanban" model="ir.ui.view">
+        <field name="name">enayah.activity.kanban</field>
+        <field name="model">enayah.activity</field>
+        <field name="arch" type="xml">
+            <kanban default_order="id desc">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="on_kanban_global_click">
+                            <a type="open">
+                                <div class="oe_kanban_box oe_kanban_color_border">
+                                    <table class="oe_kanban_table" border="0">
+                                        <tr>
+                                            <td class="oe_kanban_title1 pl-1" align="left" valign="middle">
+                                                <h2>
+                                                    <field name="name"/>
+                                                </h2>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class="oe_kanban_box_content oe_kanban_color_bglight oe_kanban_box_show_onclick_trigger oe_kanban_color_border">
+                                    <table class="oe_kanban_table">
+                                        <tr>
+                                            <td valign="top" align="left" style="padding-left:10px;">
+                                                <table>
+                                                    <tr>
+                                                        <td>Applicant :</td>
+                                                        <td>
+                                                            <b>
+                                                                <field name="create_uid"/>
+                                                            </b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Submit Date :</td>
+                                                        <td style="padding-left:10px;padding-right:10px;">
+                                                            <b>
+                                                                <field name="submit_date"/>
+                                                            </b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Type :</td>
+                                                        <td>
+                                                            <b>
+                                                                <field name="type_activity_id"/>
+                                                            </b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Sponsor :</td>
+                                                        <td>
+                                                            <b>
+                                                                <field name="sponsor_id"/>
+                                                            </b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Begin date :</td>
+                                                        <td>
+                                                            <b>
+                                                                <field name="start_date_time"/>
+                                                            </b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Employees :</td>
+                                                        <td>
+                                                            <b>
+                                                                <field name="employee_ids" widget="many2many_tags"/>
+                                                            </b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Remarks :</td>
+                                                        <td>
+                                                            <b>
+                                                                <field name="remarks"/>
+                                                            </b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>State :</td>
+                                                        <td>
+                                                            <b>
+                                                                <field name="state"/>
+                                                            </b>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </a>
+                        </div>
+
+                    </t>
+
+                </templates>
+
+            </kanban>
+
+        </field>
+    </record>
+
+    <record id="view_activity_search" model="ir.ui.view">
+        <field name="name">enayah.activity.search</field>
+        <field name="model">enayah.activity</field>
+        <field name="arch" type="xml">
+            <search string="Search Activity">
+                <field name="name"/>
+                <field name="type_activity_id"/>
+                <field name="sponsor_id"/>
+
+                <separator/>
+                <filter string="Approved Requests" name="approved_requests"
+                        domain="['|',('state', '=', 'approved_by_administration_manager'),('state', '=','approved_by_secretary_general')]"/>
+                <filter string="Refused Requests" name="refused_requests" domain="[('state', '=', 'reject')]"/>
+                <separator/>
+                <group expand="0" name="group_by" string="Group By">
+                    <filter name="group_applicant" string="Applicant" context="{'group_by' : 'create_uid'}"/>
+                    <filter name="group_state" string="State Request" context="{'group_by' : 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_enayah_all_activities_requests" model="ir.actions.act_window">
+        <field name="name">All Activities Requests</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">enayah.activity</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                There are no requests
+            </p>
+        </field>
+    </record>
+
+    <record id="action_activities_requests_to_review_am" model="ir.actions.act_window">
+        <field name="name">Activities Requests To Review</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">enayah.activity</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="domain">[('state','=','administration_manager_approval')]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                There are no requests for review
+            </p>
+        </field>
+    </record>
+
+    <record id="action_activities_requests_to_review_ed" model="ir.actions.act_window">
+        <field name="name">Activities Requests To Review</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">enayah.activity</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="domain">[('state','=','executive_director_approval')]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                There are no requests for review
+            </p>
+        </field>
+    </record>
+
+    <record id="action_activities_requests_to_review_sg" model="ir.actions.act_window">
+        <field name="name">Activities Requests To Review</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">enayah.activity</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="domain">[('state','=','secretary_general_approval')]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                There are no requests for review
+            </p>
+        </field>
+    </record>
+
+    <record id="action_enayah_my_activities_requests" model="ir.actions.act_window">
+        <field name="name">My Activity Requests</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">enayah.activity</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="domain">[('create_uid', '=', uid)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                You have no requests. Create your first request
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

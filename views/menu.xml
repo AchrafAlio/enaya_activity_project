@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--   Enayah Activities  -->
+    <menuitem id="enayah_activities_root_menu"
+              name="Enayah Activities"
+              web_icon="activity_execution_request,static/description/icon.png"
+              sequence="0"/>
+
+    <!--    Enayah Activities => Activities Requests  -->
+    <menuitem id="activities_requests_root_menu"
+              name="Activities Requests"
+              parent="activity_execution_request.enayah_activities_root_menu"
+              sequence="10"/>
+
+    <!--    Enayah Activities => Configuration  -->
+    <menuitem id="enayah_configuration_root_menu"
+              name="Configuration"
+              groups="activity_execution_request.group_enayah_applicant,activity_execution_request.group_enayah_administration_manager,activity_execution_request.group_enayah_executive_director,activity_execution_request.group_enayah_secretary_general"
+              parent="activity_execution_request.enayah_activities_root_menu"
+              sequence="20"/>
+
+
+    <!--    Enayah Activities => Activities Requests => Activities Requests To Review Administration Manager -->
+    <menuitem id="enayah_activities_requests_to_review_am_root_menu"
+          name="Activities Requests To Review"
+          parent="activity_execution_request.activities_requests_root_menu"
+          action="action_activities_requests_to_review_am"
+          groups="activity_execution_request.group_enayah_administration_manager"
+          sequence="10"/>
+
+    <!--    Enayah Activities => Activities Requests => Activities Requests To Review Executive Director -->
+    <menuitem id="enayah_activities_requests_to_review_ed_root_menu"
+          name="Administration Manager Activities Requests"
+          parent="activity_execution_request.activities_requests_root_menu"
+          action="action_activities_requests_to_review_ed"
+          groups="activity_execution_request.group_enayah_executive_director"
+          sequence="20"/>
+
+    <!--    Enayah Activities => Activities Requests => Activities Requests To Review Secretary General -->
+    <menuitem id="enayah_activities_requests_to_review_sg_root_menu"
+          name="Executive Director Activities Requests"
+          parent="activity_execution_request.activities_requests_root_menu"
+          action="action_activities_requests_to_review_sg"
+          groups="activity_execution_request.group_enayah_secretary_general"
+          sequence="30"/>
+
+
+    <!--    Enayah Activities => Activities Requests => My Activities Requests  -->
+    <menuitem id="enayah_my_activities_requests_root_menu"
+              name="My Activities Requests"
+              parent="activity_execution_request.activities_requests_root_menu"
+              groups="activity_execution_request.group_enayah_applicant"
+              action="action_enayah_my_activities_requests"
+              sequence="40"/>
+
+    <!--    Enayah Activities => Activities Requests => All Activities Requests  -->
+    <menuitem id="enayah_all_activities_requests_root_menu"
+              name="All Activities Requests"
+              parent="activity_execution_request.activities_requests_root_menu"
+              action="action_enayah_all_activities_requests"
+              sequence="50"/>
+
+    <!--    Enayah Activities => Configuration => Sponsor Type -->
+    <menuitem id="enayah_sponsors_types_root_menu"
+              name="Sponsors Types"
+              parent="activity_execution_request.enayah_configuration_root_menu"
+              action="action_enayah_sponsor_type_request"
+              sequence="0"/>
+
+    <!--    Enayah Activities => Configuration => Sponsors  -->
+    <menuitem id="enayah_sponsors_root_menu"
+              name="Sponsors"
+              parent="activity_execution_request.enayah_configuration_root_menu"
+              action="action_enayah_sponsor"
+              sequence="10"/>
+
+    <!--    Enayah Activities => Configuration => Programs/Projects  -->
+    <menuitem id="enayah_programs_projects_menu"
+          name="Programs/Projects"
+          parent="activity_execution_request.enayah_configuration_root_menu"
+          action="action_enayah_programs_projects_request"
+          sequence="20"/>
+
+</odoo>

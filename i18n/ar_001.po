@@ -1,0 +1,905 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* activity_execution_request
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-05 14:05+0000\n"
+"PO-Revision-Date: 2023-03-05 14:05+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: activity_execution_request
+#: model:res.groups,name:activity_execution_request.group_enayah_applicant
+msgid " Enayah Applicant"
+msgstr "مقدم الطلب"
+
+#. module: activity_execution_request
+#: model:res.groups,name:activity_execution_request.group_enayah_secretary_general
+msgid " Secretary General"
+msgstr "الأمين العام"
+
+#. module: activity_execution_request
+#: model:mail.template,body_html:activity_execution_request.enayah_activity_mail_template_to_am4
+msgid ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;\">\n"
+"                    <tr>\n"
+"                        <td align=\"center\">\n"
+"                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"padding: 16px; background-color: white; color: #454748; border-collapse:separate;\">\n"
+"                                <tbody>\n"
+"                                    <!-- HEADER -->\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\">\n"
+"                                                        <span style=\"font-size: 10px;\">\n"
+"                                                            <t t-out=\"user.name or ''\"/>\n"
+"                                                        </span>\n"
+"                                                        <br/>\n"
+"                                                        <span style=\"font-size: 20px; font-weight: bold;\">\n"
+"                                                            <t t-out=\"object.name or ''\"/>\n"
+"                                                        </span>\n"
+"                                                    </td>\n"
+"                                                    <td valign=\"middle\" align=\"right\">\n"
+"                                                        <img t-attf-src=\"/logo.png?company={{ user.company_id.id }}\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" t-att-alt=\"user.company_id.name\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td colspan=\"2\" style=\"text-align:center;\">\n"
+"                                                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <!-- CONTENT -->\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"top\" style=\"font-size: 13px;\">\n"
+"                                                        <div>\n"
+"                                                            <t t-out=\"object.email_content or ''\"/>\n"
+"                                                        </div>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td style=\"text-align:center;\">\n"
+"                                                        <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <!-- FOOTER -->\n"
+"                                    <tr>\n"
+"                                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\" align=\"left\">\n"
+"                                                        <t t-out=\"object.user_id.company_id.name or ''\">YourCompany</t>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                                <tr>\n"
+"                                                    <td valign=\"middle\" align=\"left\" style=\"opacity: 0.7;\">\n"
+"                                                        <t t-out=\"object.user_id.company_id.phone or ''\">+1\n"
+"                                                            650-123-4567\n"
+"                                                        </t>\n"
+"\n"
+"                                                        <t t-if=\"object.user_id.company_id.email\">\n"
+"                                                            |\n"
+"                                                            <a t-att-href=\"'mailto:%s' % object.user_id.company_id.email\" style=\"text-decoration:none; color: #454748;\" t-out=\"object.user_id.company_id.email or ''\">\n"
+"                                                                info@yourcompany.com\n"
+"                                                            </a>\n"
+"                                                        </t>\n"
+"                                                        <t t-if=\"object.user_id.company_id.website\">\n"
+"                                                            |\n"
+"                                                            <a t-att-href=\"'%s' % object.user_id.company_id.website\" style=\"text-decoration:none; color: #454748;\" t-out=\"object.user_id.company_id.website or ''\">\n"
+"                                                                http://www.example.com\n"
+"                                                            </a>\n"
+"                                                        </t>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </tbody>\n"
+"                            </table>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                    <!-- POWERED BY -->\n"
+"                    <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;\">\n"
+"                                <tr>\n"
+"                                    <td style=\"text-align: center; font-size: 13px;\">\n"
+"                                        Powered by\n"
+"                                        <a target=\"_blank\" href=\"https://www.odoo.com?utm_source=db&amp;utm_medium=auth\" style=\"color: #875A7B;\">Odoo\n"
+"                                        </a>\n"
+"                                    </td>\n"
+"                                </tr>\n"
+"                            </table>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </table>\n"
+"            "
+msgstr ""
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__message_needaction
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__message_needaction
+msgid "Action Needed"
+msgstr "الإجراءات اللازمة"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__activity_ids
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__activity_ids
+msgid "Activities"
+msgstr "الأنشطة"
+
+#. module: activity_execution_request
+#: model:ir.ui.menu,name:activity_execution_request.activities_requests_root_menu
+msgid "Activities Requests"
+msgstr "طلبات الأنشطة"
+
+#. module: activity_execution_request
+#: model:ir.actions.act_window,name:activity_execution_request.action_activities_requests_to_review_am
+#: model:ir.actions.act_window,name:activity_execution_request.action_activities_requests_to_review_ed
+#: model:ir.actions.act_window,name:activity_execution_request.action_activities_requests_to_review_sg
+#: model:ir.ui.menu,name:activity_execution_request.enayah_activities_requests_to_review_am_root_menu
+msgid "Activities Requests To Review"
+msgstr "طلبات للمراجعة"
+
+#. module: activity_execution_request
+#: model:mail.activity.type,name:activity_execution_request.mail_notify_am_create_activity
+msgid "Activity Created"
+msgstr "تم إنشاء النشاط"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__activity_exception_decoration
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "زخرفة النشاط الاستثنائي"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__remarks
+msgid "Activity Remarks"
+msgstr "ملاحظات النشاط"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__activity_state
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: activity_execution_request
+#: model:mail.template,name:activity_execution_request.enayah_activity_mail_template_to_am4
+msgid "Activity Template"
+msgstr "نموذج النشاط"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__activity_type_icon
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "رمز نوع النشاط"
+
+#. module: activity_execution_request
+#: model:res.groups,name:activity_execution_request.group_enayah_administration_manager
+msgid "Administration Manager"
+msgstr "مدير الإدارة"
+
+#. module: activity_execution_request
+#: model:ir.ui.menu,name:activity_execution_request.enayah_activities_requests_to_review_ed_root_menu
+msgid "Administration Manager Activities Requests"
+msgstr "طلبات مدير الادارة"
+
+#. module: activity_execution_request
+#: model:ir.model.fields.selection,name:activity_execution_request.selection__enayah_activity__state__administration_manager_approval
+msgid "Administration Manager Approval"
+msgstr "موافقة مدير الادارة"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__am_id
+msgid "Administration Manager ID"
+msgstr "معرف مدير الادارة"
+
+#. module: activity_execution_request
+#: model:ir.actions.act_window,name:activity_execution_request.action_enayah_all_activities_requests
+#: model:ir.ui.menu,name:activity_execution_request.enayah_all_activities_requests_root_menu
+msgid "All Activities Requests"
+msgstr "جميع الطلبات"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_activity_form
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_activity_search
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_activity_tree
+msgid "Applicant"
+msgstr "مقدم الطلب"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_activity_kanban
+msgid "Applicant :"
+msgstr "مقدم الطلب :"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_activity_form
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_sponsor_form
+msgid "Approve"
+msgstr "تعميد"
+
+#. module: activity_execution_request
+#: model:ir.model.fields.selection,name:activity_execution_request.selection__res_partner__state__approved
+msgid "Approved"
+msgstr "معتمد"
+
+#. module: activity_execution_request
+#: model:ir.model.fields.selection,name:activity_execution_request.selection__enayah_activity__state__approved_by_administration_manager
+msgid "Approved By Administration Manager"
+msgstr "معتمد من طرف مدير الادارة"
+
+#. module: activity_execution_request
+#: model:ir.model.fields.selection,name:activity_execution_request.selection__enayah_activity__state__approved_by_secretary_general
+msgid "Approved By Secretary General"
+msgstr "معتمد من طرف الامين العام"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_activity_search
+msgid "Approved Requests"
+msgstr "الطلبات المعتمدة"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_activity_form
+msgid "Are you sure that you need to reject ?"
+msgstr "هل أنت متأكد أنك بحاجة للرفض ؟"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_senior_management_approve_form
+msgid "Assign To Executive Director"
+msgstr "اسناد إلى المدير التنفيذي"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_senior_management_approve_form
+msgid "Assign To Secretary General"
+msgstr "اسناد الى الامين العام"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__message_attachment_count
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_activity_kanban
+msgid "Begin date :"
+msgstr "تاريخ البدء :"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__can_edit
+msgid "Cant Edit"
+msgstr "لا يمكن التحرير"
+
+#. module: activity_execution_request
+#: model:ir.module.category,description:activity_execution_request.module_category_enayah_activity
+msgid "Category for Enayah Activity"
+msgstr "فئة نشاط عناية"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__check_notify
+msgid "Check Notify"
+msgstr "التحقق من الاشعار"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__employee_ids
+msgid "Concerned Employees"
+msgstr "أصحاب العلاقة"
+
+#. module: activity_execution_request
+#: model:ir.ui.menu,name:activity_execution_request.enayah_configuration_root_menu
+msgid "Configuration"
+msgstr "التهيئة"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_senior_management_approve_form
+msgid "Confirm Approval"
+msgstr "تأكيد الموافقة"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_modify_activity_form
+msgid "Confirm Remarks"
+msgstr "تأكيد الملاحظات"
+
+#. module: activity_execution_request
+#: model_terms:ir.actions.act_window,help:activity_execution_request.action_enayah_programs_projects_request
+msgid "Create your first program / project"
+msgstr "أنشئ مشروعك أو برنامجك الأول"
+
+#. module: activity_execution_request
+#: model_terms:ir.actions.act_window,help:activity_execution_request.action_enayah_sponsor
+msgid "Create your first sponsor"
+msgstr "أنشئ أول داعم لك"
+
+#. module: activity_execution_request
+#: model_terms:ir.actions.act_window,help:activity_execution_request.action_enayah_sponsor_type_request
+msgid "Create your first sponsor type"
+msgstr "أنشأ نوع الداعم الأول ل"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__create_uid
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_modify_activity_wizard__create_uid
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_senior_management_approve_wizard__create_uid
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__create_uid
+msgid "Created by"
+msgstr "انشأ من قبل"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__create_date
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_modify_activity_wizard__create_date
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_senior_management_approve_wizard__create_date
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__create_date
+msgid "Created on"
+msgstr "تم إنشاؤها في"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__description
+msgid "Description"
+msgstr "الوصف"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_sponsor_type_kanban
+msgid "Description :"
+msgstr "الوصف :"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__display_name
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_modify_activity_wizard__display_name
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_senior_management_approve_wizard__display_name
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_activity_kanban
+msgid "Employees :"
+msgstr "الموظفين :"
+
+#. module: activity_execution_request
+#: model:ir.ui.menu,name:activity_execution_request.enayah_activities_root_menu
+msgid "Enayah Activities"
+msgstr "أنشطة عناية"
+
+#. module: activity_execution_request
+#: model:ir.model,name:activity_execution_request.model_enayah_activity
+#: model:ir.module.category,name:activity_execution_request.module_category_enayah_activity
+msgid "Enayah Activity"
+msgstr "نشاط عناية"
+
+#. module: activity_execution_request
+#: model:ir.model,name:activity_execution_request.model_res_partner
+msgid "Enayah Sponsor"
+msgstr "داعم عناية"
+
+#. module: activity_execution_request
+#: model:ir.model,name:activity_execution_request.model_enayah_sponsor_type
+msgid "Enayah Sponsor Type"
+msgstr "نوع داعم عناية"
+
+#. module: activity_execution_request
+#: model:res.groups,name:activity_execution_request.group_enayah_executive_director
+msgid "Executive Director"
+msgstr "المدير التنفيذي"
+
+#. module: activity_execution_request
+#: model:ir.ui.menu,name:activity_execution_request.enayah_activities_requests_to_review_sg_root_menu
+msgid "Executive Director Activities Requests"
+msgstr "طلبات المدير التنفيذي"
+
+#. module: activity_execution_request
+#: model:ir.model.fields.selection,name:activity_execution_request.selection__enayah_activity__state__executive_director_approval
+msgid "Executive Director Approval"
+msgstr "موافقة المدير التنفيذي"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__message_follower_ids
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__message_partner_ids
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_activity__activity_type_icon
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_sponsor_type__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "رمز الخط الرائع ، على سبيل المثال fa-tasks "
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__goal
+msgid "Goal"
+msgstr "الأهداف"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_activity_search
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__has_message
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__has_message
+msgid "Has Message"
+msgstr "لديه رسالة"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__hide_delete_button
+msgid "Hide Delete Button"
+msgstr "إخفاء زر الحذف"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__hide_reject_button
+msgid "Hide Reject Button"
+msgstr "إخفاء زر الرفض"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__hide_submit_button
+msgid "Hide Submit Button"
+msgstr "إخفاء زر الإرسال"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__id
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_modify_activity_wizard__id
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_senior_management_approve_wizard__id
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__activity_exception_icon
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__activity_exception_icon
+msgid "Icon"
+msgstr "الأيقونة"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_activity__activity_exception_icon
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_sponsor_type__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "أيقونة للاشارة الى نشاط استثنائي"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_activity__message_needaction
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_activity__message_unread
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_sponsor_type__message_needaction
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_sponsor_type__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "إذا تم تحديدها ، فإن الرسائل الجديدة تتطلب انتباهك."
+
+#. module: activity_execution_request
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_activity__message_has_error
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_activity__message_has_sms_error
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_sponsor_type__message_has_error
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_sponsor_type__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا تم تحديده ، فإن بعض الرسائل بها خطأ في التسليم."
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__message_is_follower
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__message_is_follower
+msgid "Is Follower"
+msgstr "تابع"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity____last_update
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_modify_activity_wizard____last_update
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_senior_management_approve_wizard____last_update
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type____last_update
+msgid "Last Modified on"
+msgstr "تاريخ آخر تعديل"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__write_uid
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_modify_activity_wizard__write_uid
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_senior_management_approve_wizard__write_uid
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__write_date
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_modify_activity_wizard__write_date
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_senior_management_approve_wizard__write_date
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__message_main_attachment_id
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "المرفق الرئيسي"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__message_has_error
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسالة"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__message_ids
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: activity_execution_request
+#: model:ir.model.fields.selection,name:activity_execution_request.selection__enayah_activity__state__modification_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_activity_form
+msgid "Modification Request"
+msgstr "طلب تعديل"
+
+#. module: activity_execution_request
+#: model:ir.actions.act_window,name:activity_execution_request.action_modify_enayah_activity
+msgid "Modify Activity"
+msgstr "تعديل نشاط"
+
+#. module: activity_execution_request
+#: model:ir.model,name:activity_execution_request.model_enayah_modify_activity_wizard
+msgid "Modify Activity Wizard"
+msgstr "تعديل معالج النشاط"
+
+#. module: activity_execution_request
+#: model:ir.ui.menu,name:activity_execution_request.enayah_my_activities_requests_root_menu
+msgid "My Activities Requests"
+msgstr "طلباتي"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__my_activity_date_deadline
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "الموعد النهائي لنشاطي"
+
+#. module: activity_execution_request
+#: model:ir.actions.act_window,name:activity_execution_request.action_enayah_my_activities_requests
+msgid "My Activity Requests"
+msgstr "طلباتي"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__name
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_sponsor_type_kanban
+msgid "Name :"
+msgstr "الاسم :"
+
+#. module: activity_execution_request
+#: code:addons/activity_execution_request/models/activity.py:0
+#: code:addons/activity_execution_request/models/activity.py:0
+#: code:addons/activity_execution_request/models/activity.py:0
+#: code:addons/activity_execution_request/models/activity.py:0
+#: model:ir.model.fields.selection,name:activity_execution_request.selection__enayah_activity__state__new
+#: model:ir.model.fields.selection,name:activity_execution_request.selection__res_partner__state__new
+#, python-format
+msgid "New"
+msgstr "جديد"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__activity_date_deadline
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__activity_summary
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__activity_type_id
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__message_needaction_counter
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الانشطة"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__message_has_error_counter
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الاخطاء"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_activity__message_needaction_counter
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_sponsor_type__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "عدد الرسائل التي تتطلب اتخاذ إجراء"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_activity__message_has_error_counter
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_sponsor_type__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل التي بها خطأ في التسليم"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_activity__message_unread_counter
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_sponsor_type__message_unread_counter
+msgid "Number of unread messages"
+msgstr "عدد الرسائل التي بها خطأ في التسليم"
+
+#. module: activity_execution_request
+#: model:ir.model.fields.selection,name:activity_execution_request.selection__res_partner__state__old_continuous
+msgid "Old Continuous"
+msgstr "قديم مستمر"
+
+#. module: activity_execution_request
+#: model:ir.model.fields.selection,name:activity_execution_request.selection__res_partner__state__old_discontinues
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_sponsor_form
+msgid "Old Discontinues"
+msgstr "قديم منقطع"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__enaya_program_project_id
+msgid "Program / Project"
+msgstr "البرنامج / المشروع"
+
+#. module: activity_execution_request
+#: model:ir.ui.menu,name:activity_execution_request.enayah_programs_projects_menu
+msgid "Programs/Projects"
+msgstr "البرامج / المشاريع"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_activity_search
+msgid "Refused Requests"
+msgstr "الطلبات المرفوضة"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_activity_form
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_modify_activity_form
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_senior_management_approve_form
+msgid "Reject"
+msgstr "رفض"
+
+#. module: activity_execution_request
+#: model:ir.model.fields.selection,name:activity_execution_request.selection__enayah_activity__state__reject
+msgid "Rejected"
+msgstr "مرفوض"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_modify_activity_wizard__remarks
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_senior_management_approve_wizard__remarks
+msgid "Remarks"
+msgstr "الملاحظات"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_activity_kanban
+msgid "Remarks :"
+msgstr "الملاحظات :"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__activity_user_id
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__message_has_sms_error
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ في تسليم الرسائل القصيرة"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_activity_search
+msgid "Search Activity"
+msgstr "بحث النشاط"
+
+#. module: activity_execution_request
+#: model:ir.model.fields.selection,name:activity_execution_request.selection__enayah_activity__state__secretary_general_approval
+msgid "Secretary General Approval"
+msgstr "موافقة الأمين العام"
+
+#. module: activity_execution_request
+#: model:ir.model,name:activity_execution_request.model_enayah_senior_management_approve_wizard
+msgid "Senior Management Approve Wizard"
+msgstr "معالج موافقة الإدارة العليا"
+
+#. module: activity_execution_request
+#: model:ir.actions.act_window,name:activity_execution_request.action_senior_management_approve
+msgid "SeniorManagementApprove"
+msgstr "الموافقة على الطلب"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_project_project__speach_model
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_program_project_form
+msgid "Speach Model"
+msgstr "نموذج الخطاب"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__sponsor_id
+msgid "Sponsor"
+msgstr "الداعم"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_activity_kanban
+msgid "Sponsor :"
+msgstr "الداعم :"
+
+#. module: activity_execution_request
+#: model:ir.actions.report,name:activity_execution_request.report_sponsor_speach
+msgid "Sponsor Speach"
+msgstr "خطاب الداعم"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__sponsor_state
+msgid "Sponsor State"
+msgstr "حالة الداعم"
+
+#. module: activity_execution_request
+#: model:ir.actions.act_window,name:activity_execution_request.action_enayah_sponsor_type_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__sponsor_type
+msgid "Sponsor Type"
+msgstr "نوع الداعم"
+
+#. module: activity_execution_request
+#: model:ir.actions.act_window,name:activity_execution_request.action_enayah_sponsor
+#: model:ir.ui.menu,name:activity_execution_request.enayah_sponsors_root_menu
+msgid "Sponsors"
+msgstr "الداعمين"
+
+#. module: activity_execution_request
+#: model:ir.ui.menu,name:activity_execution_request.enayah_sponsors_types_root_menu
+msgid "Sponsors Types"
+msgstr "أنواع الداعمين"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__start_date_time
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: activity_execution_request
+#: code:addons/activity_execution_request/models/activity.py:0
+#, python-format
+msgid "Start Date cannot be set before Current Date."
+msgstr "تاريخ بداية النشاط لا يمكن ان يكون قبل تاريخ اليوم"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_activity_kanban
+msgid "State :"
+msgstr "الحالة :"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_activity_search
+msgid "State Request"
+msgstr "حالة الطلب"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__state
+#: model:ir.model.fields,field_description:activity_execution_request.field_res_partner__state
+msgid "Status"
+msgstr "الحالة"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_activity__activity_state
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_sponsor_type__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_activity_form
+msgid "Submit"
+msgstr "ارسال"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__submit_date
+msgid "Submit Date"
+msgstr "تاريخ الارسال"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_activity_kanban
+msgid "Submit Date :"
+msgstr "تاريخ الارسال :"
+
+#. module: activity_execution_request
+#: model_terms:ir.actions.act_window,help:activity_execution_request.action_enayah_all_activities_requests
+msgid "There are no requests"
+msgstr "لا يوجد طلبات"
+
+#. module: activity_execution_request
+#: model_terms:ir.actions.act_window,help:activity_execution_request.action_activities_requests_to_review_am
+#: model_terms:ir.actions.act_window,help:activity_execution_request.action_activities_requests_to_review_ed
+#: model_terms:ir.actions.act_window,help:activity_execution_request.action_activities_requests_to_review_sg
+msgid "There are no requests for review"
+msgstr "لا يوجد لديك طلبات للمراجعة"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_res_partner__sponsor_type_id
+#: model:ir.model.fields,field_description:activity_execution_request.field_res_users__sponsor_type_id
+msgid "Type"
+msgstr "نوع الداعم"
+
+#. module: activity_execution_request
+#: model_terms:ir.ui.view,arch_db:activity_execution_request.view_activity_kanban
+msgid "Type :"
+msgstr "النوع :"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__type_activity_id
+msgid "Type of Activity"
+msgstr "نوع النشاط"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_activity__activity_exception_decoration
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_sponsor_type__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "نوع النشاط الاستثنائي في السجل"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__message_unread
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__message_unread
+msgid "Unread Messages"
+msgstr "الرسائل الغير مقروءة"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__message_unread_counter
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "عداد الرسائل الغير مقروءة"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__user_id
+msgid "User ID"
+msgstr "معرف المستخدم"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_activity__website_message_ids
+#: model:ir.model.fields,field_description:activity_execution_request.field_enayah_sponsor_type__website_message_ids
+msgid "Website Messages"
+msgstr "رسائل الموقع"
+
+#. module: activity_execution_request
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_activity__website_message_ids
+#: model:ir.model.fields,help:activity_execution_request.field_enayah_sponsor_type__website_message_ids
+msgid "Website communication history"
+msgstr "سجل اتصالات الموقع"
+
+#. module: activity_execution_request
+#: model_terms:ir.actions.act_window,help:activity_execution_request.action_enayah_my_activities_requests
+msgid "You have no requests. Create your first request"
+msgstr "لا يوجد لديك طلبات. قم بانشاء طلبك الاول"
+
+#. module: activity_execution_request
+#: model:mail.activity.type,name:activity_execution_request.mail_notify_applicant
+msgid "Your Activity Needs Modifications"
+msgstr "نشاطك يحتاج إلى تعديلات"
+
+#. module: activity_execution_request
+#: model:ir.model,name:activity_execution_request.model_project_project
+msgid "enayah program/project"
+msgstr "برنامج/مشروع عناية"
+
+#. module: activity_execution_request
+#: model:ir.actions.act_window,name:activity_execution_request.action_enayah_programs_projects_request
+msgid "programs/projects"
+msgstr "البرامج / المشاريع"
+
+#. module: activity_execution_request
+#: model:mail.template,subject:activity_execution_request.enayah_activity_mail_template_to_am4
+msgid "{{ object.email_subject }}"
+msgstr ""

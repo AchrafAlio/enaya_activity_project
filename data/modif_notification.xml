@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="mail_notify_applicant" model="mail.activity.type">
+        <field name="name">Your Activity Needs Modifications</field>
+        <field name="res_model">hr.employee</field>
+    </record>
+
+</odoo>

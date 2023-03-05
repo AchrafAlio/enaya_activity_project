@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_program_project_form" model="ir.ui.view">
+        <field name="name">project.project.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='description']" position="after">
+                <page name="speach_model" string="Speach Model">
+                     <field name="speach_model"></field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_enayah_programs_projects_request" model="ir.actions.act_window">
+        <field name="name">programs/projects</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">project.project</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first program / project
+            </p>
+        </field>
+    </record>
+
+</odoo>

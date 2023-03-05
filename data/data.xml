@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!-- Sequences for enayah activity -->
+        <record id="seq_enayah_activity" model="ir.sequence">
+            <field name="name">Activity Sequence</field>
+            <field name="code">enayah.activity</field>
+            <field name="prefix">AC</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+
+    <data>
+        <!-- Sequences for enayah report -->
+        <record id="seq_enayah_report" model="ir.sequence">
+            <field name="name">Report Sequence</field>
+            <field name="code">enayah.results.activity.report</field>
+            <field name="prefix">RE</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+
+</odoo>
